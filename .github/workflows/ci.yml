@@ -35,5 +35,5 @@ jobs:
     environment: 'dev'
     steps:
       - name: Test dev
-      - run: echo 'you did it!'
+        run: echo 'you did it!'
     
