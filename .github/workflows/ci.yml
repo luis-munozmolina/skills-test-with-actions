@@ -30,12 +30,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test dev
-        run: echo 'you did it! - ${{github.repository}} - $GITHUB_REPOSITORY'
-      
-      - name: Dump github context
-        run:   echo "$GITHUB_CONTEXT"
-        shell: bash
-        env:
-         GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "you did it! - ${{github.repository}} - $GITHUB_REPOSITORY"
+
+  if-Windows-else:
+    runs-on: ubuntu-latest
+    steps:
+      - name: condition 1
+        if: runner.os == 'Windows'
+        run: echo "The operating system on the runner is $env:GITHUB_REPOSITORY."
+      - name: condition 2
+        if: runner.os != 'Windows'
+        run: echo "The operating system on the runner is not Windows, it's $GITHUB_REPOSITORY."
+
 
     
