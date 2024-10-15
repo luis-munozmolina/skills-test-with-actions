@@ -30,5 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test dev
-        run: echo 'you did it! ${{ env.GITHUB_REPOSITORY }} - ${{ vars.GITHUB_REPOSITORY }} - ${{github.repo}}'
+        run: echo 'you did it! - ${{github.repository}}'
+      
+      - name: Dump github context
+        run:   echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+         GITHUB_CONTEXT: ${{ toJson(github) }}
+
     
